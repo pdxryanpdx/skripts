@@ -1,0 +1,140 @@
+command /terminal:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 27 of player with blue stained glass pane named "&aClick Here" to run player command "/next1"
+        format gui slot 28,19,10,11,12,21,30,31,32,23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next1:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 28 of player with blue stained glass pane named "&aClick Here" to run player command "/next2"
+        format gui slot 27 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 19,10,11,12,21,30,31,32,23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next2:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 19 of player with blue stained glass pane named "&aClick Here" to run player command "/next3"
+        format gui slot 27, and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 10,11,12,21,30,31,32,23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next3:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 10 of player with blue stained glass pane named "&aClick Here" to run player command "/next4"
+        format gui slot 27, 19 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 11,12,21,30,31,32,23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next4:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 11 of player with blue stained glass pane named "&aClick Here" to run player command "/next5"
+        format gui slot 27, 19,10 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 12,21,30,31,32,23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next5:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 12 of player with blue stained glass pane named "&aClick Here" to run player command "/next6"
+        format gui slot 27, 19,10,11 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 21,30,31,32,23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next6:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 21 of player with blue stained glass pane named "&aClick Here" to run player command "/next7"
+        format gui slot 27, 19,10,11,12 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 30,31,32,23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+        
+command /next7:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 30 of player with blue stained glass pane named "&aClick Here" to run player command "/next8"
+        format gui slot 27, 19,10,11,12,21 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 31,32,23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next8:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 31 of player with blue stained glass pane named "&aClick Here" to run player command "/next9"
+        format gui slot 27, 19,10,11,12,21,30 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 32,23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next9:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 32 of player with blue stained glass pane named "&aClick Here" to run player command "/next10"
+        format gui slot 27, 19,10,11,12,21,30,31 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 23,14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next10:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 23 of player with blue stained glass pane named "&aClick Here" to run player command "/next11"
+        format gui slot 27, 19,10,11,12,21,30,31,32 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 14,15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next11:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 14 of player with blue stained glass pane named "&aClick Here" to run player command "/next12"
+        format gui slot 27, 19,10,11,12,21,30,31,32,23, and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 15,16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next12:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 15 of player with blue stained glass pane named "&aClick Here" to run player command "/next13"
+        format gui slot 27, 19,10,11,12,21,30,31,32,23,14 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 16,25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next13:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 16 of player with blue stained glass pane named "&aClick Here" to run player command "/next14"
+        format gui slot 27, 19,10,11,12,21,30,31,32,23,14,15 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 25,34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next14:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 25 of player with blue stained glass pane named "&aClick Here" to run player command "/next15"
+        format gui slot 27, 19,10,11,12,21,30,31,32,23,14,15,16 and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 34, and 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next15:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 34 of player with blue stained glass pane named "&aClick Here" to run player command "/next16"
+        format gui slot 27, 19,10,11,12,21,30,31,32,23,14,15,16,25, and 28 of player with lime stained glass pane named "&aCompleted!"
+        format gui slot 35 of player with red stained glass pane named "&cDon't Click Here" to close then run player command "/fail"
+
+command /next16:
+    trigger: 
+        open virtual chest inventory with size 5 named "TERMINAL" to player
+        format gui slot 0,1,2,3,4,5,6,7,8,13,17,18,20,22,24,26,29, 33,36,37,38,39,40,41,42,43,44 and 9 of player with black stained glass pane named "&a" to close then run player command "/fail"
+        format gui slot 35 of player with blue stained glass pane named "&aClick Here" to close then run player command "/congrats"
+        format gui slot 27, 19,10,11,12,21,30,31,32,23,14,15,16,25,34 and 28 of player with lime stained glass pane named "&aCompleted!"
+
+command /congrats:
+    trigger:
+        send "&c&lTERMINAL &7> &cCongratulations on completing the TERMINAL"
+command /fail: 
+    trigger:
+        send "&c&lTERMINAL &7> &cYou failed the TERMINAL!"
