@@ -1,0 +1,24 @@
+function soulGuardian(p: player):
+        spawn a zombie at {_p}'s location
+        set name of last spawned zombie to "&8Soul Guardian"
+        set tool of the last spawned zombie to stone shovel
+        set helmet of the last spawned zombie to chainmail helmet
+        set chestplate of the last spawned zombie to chainmail chestplate
+        set leggings of the last spawned zombie to chainmail leggings
+        set boots of the last spawned zombie to chainmail boots
+        enchant helmet of the last spawned zombie with protection 5
+        enchant chestplate of the last spawned zombie with protection 2
+        enchant leggings of the last spawned zombie with protection 2
+        enchant boots of the last spawned zombie with protection 2
+        enchant tool of the last spawned zombie with sharpness 10
+        enchant tool of the last spawned zombie with unbreaking 1000
+        enchant helmet of the last spawned zombie with unbreaking 1000
+        enchant chestplate of the last spawned zombie with unbreaking 1000
+        enchant leggings of the last spawned zombie with unbreaking 1000 
+        enchant boots of the last spawned zombie with unbreaking 1000
+
+
+command /garden:
+    trigger:
+        soulGuardian(player)
+
