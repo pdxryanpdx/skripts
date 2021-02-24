@@ -1,0 +1,58 @@
+options: 
+    logo: &4&lKOTH &7⤞
+
+
+on script load:
+#Put your coordniates in the correct location found below
+    set {nss1} to location(178, 74, -100, world "world")
+    set {nss2} to location(180, 74, -101, world "world")
+    set {nss3} to location(182, 74, -100, world "world")
+    set {ess1} to location(188, 74, -94, world "world")
+    set {ess2} to location(189, 74, -92, world "world")
+    set {ess3} to location(188, 74, -90, world "world")
+    set {sss1} to location(182, 74, -84, world "world")
+    set {sss2} to location(189, 74, -83, world "world")
+    set {sss3} to location(178, 74, -84, world "world")
+    set {wss1} to location(172, 74, -90, world "world")
+    set {wss2} to location(171, 74, -92,world "world")
+    set {wss3} to location(172, 74, -94, world "world")
+    set {wnss} to location(175, 74, -97, world "world")
+    set {enss} to location(185, 74, -97,world "world")
+    set {esss} to location(185, 74, -87, world "world")
+    set {wsss} to location(175, 74, -87, world "world")
+    set {mss} to location(180,74, -92, world "world")
+    broadcast "{@logo} &cVariables have been set"
+
+#queue
+command /kothqueue: 
+    trigger: 
+        if "%region at player%" contains "kothwaiting":
+            if player's name is equal to {kothqueue::*}:
+                message "{@logo} &cYou are already in Koth Queue"
+            else:
+                add player's name to {kothqueue::*}
+                message "{@logo} &cYou've been added to Koth Queue" to player
+        else: 
+            message "Sorry you are not close enough to KOTH to Queue" to player
+#unqueue
+command /kothunqueue: 
+    trigger:
+        remove player's name from {kothqueue::*}
+        message "{@logo} &cYou've been removed from Koth Queue" to player
+#forcestart
+command /kothstart:
+    trigger:
+        broadcast "{@logo} &cKOTH will start in 30 seconds"
+        wait 30 second
+        broadcast {kothqueue::*}
+        loop {kothqueue::*}:
+            teleport loop-value parsed as player to location 180.5, 71, -91.5 in world "world"
+        remove all players from {kothqueue::*}
+        wait 5 seconds    
+        send loop all  players in region title "koth" "&4&lWAVE &c&l1" with subtitle "&aTry not to die!" for 5 seconds
+
+#check queue
+command /kothstatus:
+    trigger:
+        broadcast {kothqueue::*}
+        message "&7If no names are listed, there are no players in queue"
