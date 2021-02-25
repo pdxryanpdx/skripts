@@ -2,8 +2,8 @@
 
 
 
-function soulGuardian(p: player):
-        set name of last spawned zombie to "&8&lSoul Guardian"
+function graveGuard(p: player):
+        set name of last spawned zombie to "&8&lGrave Guard"
         set tool of the last spawned zombie to stone shovel
         set helmet of the last spawned zombie to chainmail helmet
         set chestplate of the last spawned zombie to chainmail chestplate
@@ -23,25 +23,64 @@ function soulGuardian(p: player):
 
 function fireRat(p: player):
         set name of last spawned silverfish to "&4&lFire Rat"
-        apply health boost 10 to the last spawned silverfish for 9999 minutes
+        set the last spawned entity's max health to 50
         apply strength 5 to the last spawned silverfish for 9999 minutes
         apply fire resistance 1000 to the last spawned silverfish for 9999 minutes
+        heal the last spawned silverfish
+        add 1 to {alivemobs}
+
+function soulDestroyer(p: player):
+    set name of last spawned skeleton to "&1&lSoul Destroyer"
+    set helmet of the last spawned skeleton to netherite helmet
+    set chestplate of the last spawned skeleton to netherite chestplate
+    set leggings of the last spawned skeleton to netherite leggings
+    set boots of the last spawned skeleton to netherite boots 
+    set tool of the last spawned skeleton to netherite hoe 
+    enchant tool of the last spawned skeleton with sharpness 5
+    enchant tool of the last spawned skeleton with unbreaking 1000
+    enchant helmet of the last spawned skeleton with unbreaking 1000
+    enchant chestplate of the last spawned skeleton with unbreaking 1000
+    enchant leggings of the last spawned skeleton with unbreaking 1000 
+    enchant boots of the last spawned skeleton with unbreaking 1000
 
 function kothWave1(p: player):  
-        spawn an adult zombie at {wnss}
-        soulGuardian({_p})
-        wait 1 tick
-        spawn a adult zombie at {wsss}
-        soulGuardian({_p})
-        wait 1 tick
-        spawn an adult zombie at {esss}
-        soulGuardian({_p}) 
-        wait 1 tick
-        spawn an adult zombie at {enss}
-        soulGuardian({_p})
-        add 4 to {alivemobs}
-        wait 1 ticks
+        loop 3 times:
+                spawn an adult zombie at {wnss}
+                graveGuard({_p})
+                wait 1 tick
+                spawn a adult zombie at {wsss}
+                graveGuard({_p})
+                wait 1 tick
+                spawn an adult zombie at {esss}
+                graveGuard({_p}) 
+                wait 1 tick
+                spawn an adult zombie at {enss}
+                graveGuard({_p})
+                add 4 to {alivemobs}
+                wait 1 ticks
 
+function kothWave2(p: player):
+    kothWave1({_p})
+    loop 2 times:
+        spawn a silverfish at {nss2}
+        fireRat({_p})
+        wait 1 tick
+        spawn a silverfish at {ess2}
+        fireRat({_p})
+        wait 1 tick
+        spawn a silverfish at {wss2}
+        fireRat({_p})
+        wait 1 tick
+        spawn a silverfish at {sss2}
+        fireRat({_p})
+        wait 1 tick
+
+function kothWave3(p:player):
+    kothWave2({_p})
+    loop 4 times:
+        spawn a skeleton at {mss}
+        soulDestroyer({_p}) 
+    remove 1 from {alivemobs}
 
 options: 
     # the text before all koth messages
@@ -61,7 +100,7 @@ on script load:
     set {ess2} to location(189, 74, -92, world "world")
     set {ess3} to location(188, 74, -90, world "world")
     set {sss1} to location(182, 74, -84, world "world")
-    set {sss2} to location(189, 74, -83, world "world")
+    set {sss2} to location(180, 74, -83, world "world")
     set {sss3} to location(178, 74, -84, world "world")
     set {wss1} to location(172, 74, -90, world "world")
     set {wss2} to location(171, 74, -92,world "world")
@@ -71,7 +110,14 @@ on script load:
     set {esss} to location(185, 74, -87, world "world")
     set {wsss} to location(175, 74, -87, world "world")
     set {mss} to location(180,74, -92, world "world")
-    broadcast "{@logo} &cVariables have been set"
+    set {wave1} to 0
+    set {wave2} to 0
+    set {wave3} to 0
+    set {wave4} to 0
+    set {wave5} to 0
+    wait 10 ticks
+    set {alivemobs} to 0
+    broadcast "{@logo} &cKOTH is ready to be played"
 
 #queue
 command /kothqueue: 
@@ -95,12 +141,20 @@ command /kothstatus:
         send "{@logo} &7Koth Status"
         send "&7%{kothqueue::*}%" to player
         send "&7If no names are listed, there are no players in queue" to player
-        send "&7%{alivemobs}%" to player
-        send "&7mobs alive" to player
+        send "&7%{alivemobs}% mobs alive" to player
+        send "Wave 1? %{wave1}%"
+        send "Wave 2? %{wave2}%"
+        send "Wave 3? %{wave3}%"
+        send "Wave 4? %{wave4}%"
+        send "Wave 5? %{wave5}%"
 
 command /kothforcereset:
     trigger:
         set {wave1} to 0
+        set {wave2} to 0
+        set {wave3} to 0
+        set {wave4} to 0
+        set {wave5} to 0
         wait 10 ticks
         set {alivemobs} to 0
         send "{@logo} &cReset KOTH" to player
@@ -110,36 +164,38 @@ command /kothstart:
     trigger:
         broadcast "{@logo} &cKOTH will start in {@pt} seconds"
         wait {@pt} seconds
-        broadcast {kothqueue::*}
         loop {kothqueue::*}:
             teleport loop-value parsed as player to location 180.5, 71, -91.5 in world "world"
-            send "{@logo} &cKOTH will start in {@st} seconds"
+            send "{@logo} &cWave 1 will start in {@st} seconds"
         wait {@st} seconds    
         if "%region at player%" contains "koth":   
             send "{@logo} &cWave 1 has started!" to players
             set {wave1} to 1
-            loop 3 times:
-                kothWave1(player)
-        wait 5 seconds
+            kothWave1(player)
+        wait 0.5 seconds
         if {wave1} is 1:
             loop 100 times:
                 if {alivemobs} is 0:
                     if "%region at player%" contains "koth": 
                         set {wave1} to 0 
-                        send "{@logo} &cWave 1 has been complete! You have 5 seconds to prepare for wave 2" to all players
+                        send "{@logo} &cWave 1 has been completed! You have 5 seconds to prepare for wave 2" to all players
                         wait 10 ticks
                         set {alivemobs} to 1
-                        wait 5 seconds
-                        if "%region at player%" contains "koth":
-                            send "{@logo} &cWave 2 has started!" to all players
-
-                wait 1 seconds
-        else:
-            stop
-# readd remove player from queue
-
-command /armor:
-    trigger:
-        enchant player's tool with protection 30
-        enchant player's tool with unbreaking 30
-        enchant player's tool with sharpness 5
+                        wait 4.5 seconds
+                        send "{@logo} &cWave 2 has started!" to players
+                        set {wave2} to 1
+                        kothWave2(player)
+                        exit 1 loop
+        wait 10 seconds
+        loop 100 times: 
+            if {wave2} is 1:
+                if {alivemobs} is 0:
+                    if "%region at player%" contains "koth": 
+                        set {wave2} to 0 
+                        send "{@logo} &cWave 2 has been completed! You have 5 seconds to prepare for wave 3" to all players
+                        wait 10 ticks
+                        set {alivemobs} to 1
+                        wait 4.5 seconds
+                        send "{@logo} &cWave 3 has started!" to players
+                        kothWave3(player)
+        
