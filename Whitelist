@@ -7,6 +7,8 @@ on join:
 		if player doesn't have permission "punishment.whitelist":
 			kick player due to "{@logo}Whitelist is &3enabled &7for &3%{whitelistreason}%"
 			stop
+	else:
+		create bossbar titled "{@alogo}Whitelist is &3on!" and id "whitelist" for player with colors purple
 
 command /whitelist [<text>] [<text>]:
 	permission: whitelist.command
