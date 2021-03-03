@@ -1,7 +1,6 @@
-command /donate [<text>]:
+command /donate:
 	trigger:
-		open chest with 3 rows named "&8Donate! (&n%player%&8)" to player
-		format slot 10 of player with book named "&8[&5Epic&8] &7Rank" with lore "&7||&7Be an Epic person with this!||&7Costs &d$3.50 USD||&7||&7&o(/buy)" to close then run [make player execute command "buy1 epic"]
-		format slot 12 of player with book named "&8[&6Legend&8] &7Rank" with lore "&7||&7Why settle for Epic..||&7When you can be a &6Legend&7!||&7Costs &e$7 USD||&7||&7&o(/buy)" to close then run [make player execute command "buy1"]
-		format slot 14 of player with book named "&8[&4Titan&8] &7Rank" with lore "&7||&7The Titans ruled the cosmos..||&7Now you can rule your own||&7Costs &c$12 USD||&7||&7&o(/buy)" to close then run [make player execute command "buy1"]
-		format slot 16 of player with emerald named "&7Extra &2&n$1,500,000" with lore "&7||&7Running out of cash?||&7Buy this and receive $1.5 million||&7Costs &a$1.50 USD||&7||&7&o(/buy)" to close then run [make player execute command "buy1"]
+		open virtual chest with 3 rows named "Donate" to player
+		format gui slot 10 of player with enchanted book named "&8[&5Epic&8] &7Rank" with lore "&7", "&bBe an Epic person with this!", "", "&7Costs &d$3.50 USD",  and "&7&o(/buy)" 
+		format gui slot 13 of player with enchanted book named "&8[&6Legend&8] &7Rank" with lore "&7", "&bWhy settle for Epic...", "&bWhen you can be a &6Legend&7!", "", "&7Costs &d$7 USD", and "&7&o(/buy)"
+		format gui slot 16 of player with enchanted book named "&8[&4Titan&8] &7Rank" with lore "&7", "&bThe Titans ruled the cosmos..","&bNow you can rule your own","","&7Costs &d$12 USD"and "&7&o(/buy)" 
