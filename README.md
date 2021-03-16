@@ -1,1 +1,1 @@
-Here I am planing to post all my skripts I create that I believe should be public. 
+This is where in progress or minor skripts live on my GitHub
